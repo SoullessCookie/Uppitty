@@ -20,10 +20,9 @@ As of right now, it can be downloaded from the Releases section of this github r
 
 OR
 
-You can compile it yourself using Electron Forge or whatever compiler you choose for electron.
+You can compile it yourself using Electron Forge or whatever compiler you choose for electron.  
 
-
-
+  
 **_Disclaimer_**
 
 If someone offered to sell you this app or sent it to you through email/messages, do not use it.
