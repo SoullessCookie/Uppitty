@@ -1,0 +1,9 @@
+{
+    "botId": "botId",
+    "webhook": "webhook",
+    "webhookNotifications": "webhookNotifications",
+    "localNotifications": "localNotifications",
+    "intervalTime": 5,
+    "timeFunction": 1,
+    "normalStatus": 1
+}
