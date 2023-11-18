@@ -4,9 +4,11 @@
 
 Uppitty is a discord bot monitoring application.
 
+
 **What does it do?**
 
 It allows you to track when your bot goes offline, autorestart, monitor hardware usage, and has advanced logging capabilities.
+
 
 **How do I use it?**
 
