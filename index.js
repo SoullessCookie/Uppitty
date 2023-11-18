@@ -2,7 +2,7 @@ const notifier = require('node-notifier');
 const { Client, GatewayIntentBits, WebhookClient } = require('discord.js');
 const { botId, webhook, webhookNotifications, localNotifications  } = require('./config.json');
 
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, shell } = require('electron')
 
 const mainWindow = () => {
     
@@ -20,8 +20,13 @@ const mainWindow = () => {
 
   win.loadFile('index.html')
   win.setMenu(null)
-}
 
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url);
+    return { action: 'deny' };
+  });
+  
+}
 app.whenReady().then(() => {
     mainWindow()
 
@@ -31,6 +36,18 @@ app.whenReady().then(() => {
     }
   })
 })
+
+function monitor() {
+  // Add your monitor functionality
+}
+
+function settings() {
+  // Add your settings functionality
+}
+
+function help() {
+  // Add your help functionality
+}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
