@@ -10,7 +10,7 @@ const mainWindow = () => {
     width: 800,
     height: 600,
     icon: 'graphics/icon_crop.png',
-    title: `Uppity (Monitoring- ${botId})`,
+    title: `Uppity (Watching- ${botId})`,
     frame: true,
     darkTheme: true,
     devtools: false,
@@ -21,12 +21,57 @@ const mainWindow = () => {
   win.loadFile('index.html')
   win.setMenu(null)
 
+  const monitorWin = new BrowserWindow({ 
+    parent: win,
+    width: 500,
+    height: 400,
+    icon: 'graphics/icon_crop.png',
+    title: `Uppity (Monitoring- ${botId})`,
+    frame: true,
+    darkTheme: true,
+    devtools: false,
+    menuBarVisible: false,
+    backgroundColor: '#1e2124'
+   })
+  monitorWin.loadFile('html/monitor.html')
+  monitorWin.setMenu(null)
+
+  const settingsWin = new BrowserWindow({ 
+    parent: win,
+    width: 500,
+    height: 400,
+    icon: 'graphics/icon_crop.png',
+    title: `Uppity (Settings)`,
+    frame: true,
+    darkTheme: true,
+    devtools: false,
+    menuBarVisible: false,
+    backgroundColor: '#1e2124'
+   })
+   settingsWin.loadFile('html/settings.html')
+   settingsWin.setMenu(null)
+
+  const helpWin = new BrowserWindow({ 
+    parent: win,
+    width: 500,
+    height: 400,
+    icon: 'graphics/icon_crop.png',
+    title: `Uppity (Help)`,
+    frame: true,
+    darkTheme: true,
+    devtools: false,
+    menuBarVisible: false,
+    backgroundColor: '#1e2124'
+   })
+   helpWin.loadFile('html/help.html')
+   helpWin.setMenu(null)
+
   win.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };
   });
-  
 }
+
 app.whenReady().then(() => {
     mainWindow()
 
@@ -36,18 +81,6 @@ app.whenReady().then(() => {
     }
   })
 })
-
-function monitor() {
-  // Add your monitor functionality
-}
-
-function settings() {
-  // Add your settings functionality
-}
-
-function help() {
-  // Add your help functionality
-}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
